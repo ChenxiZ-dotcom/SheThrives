@@ -401,6 +401,11 @@ footer { font-size: 0.9rem; }
 .study-links a { color: var(--ochre-ink); }
 .rm-divider { border: 0; border-top: 1px solid var(--line); margin: 1.5rem 0 0.5rem; }
 .rm-section-label { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); font-weight: 700; }
+.method .focus-item { grid-template-columns: 1fr; }
+.method .focus-item h3, .method .focus-item p { grid-column: 1; }
+.method .focus-item h3 { white-space: nowrap; }
+.focus-sub-line { white-space: nowrap; font-size: clamp(0.82rem, 0.55rem + 1.2vw, 1.2rem); }
+@media (max-width: 520px) { .focus-sub-line { white-space: normal; font-size: var(--step-0); } }
 </style>
 <style>
 html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:none!important}
@@ -426,7 +431,7 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
       <div class="hero-head">
         <p class="label hero-eyebrow">Purpose coaching for Asian women in North America</p>
         <h1 id="hero-title"><span class="h1-line">You checked every box.</span> <span class="h1-line">So why does something still feel <em>missing</em>?</span></h1>
-        <p class="solution">Our <a class="solution-link" href="#focus">purpose coaching</a> helps you find what you truly want, so you wake up excited about your day.</p>
+        <p class="solution">Our 3-step <a class="solution-link" href="#focus">purpose coaching</a> bridges the gap between where you are now and a life you&rsquo;re excited to wake up to.</p>
         <div class="cta-row">
           <a class="btn" href="#book">Book a 30-minute new client call</a>
           <span class="btn-note">$28 · Leave with a clear plan · Full refund if it's not a fit</span>
@@ -438,7 +443,6 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
       </div>
 
       <div class="hero-close">
-        <p class="hero-sub">Good grades, good school, stable job. Everything you were told to want.</p>
         <p class="belief">You get to decide what a good life looks like. Not the checklist you grew up with. <span>You.</span></p>
       </div>
     </section>
@@ -479,24 +483,21 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
 
     <section class="section" id="focus" aria-labelledby="focus-title">
       <div class="section-head">
-        <h2 id="focus-title">How we help you find <span class="em-your">your</span> purpose</h2>
-        <p class="focus-sub">Your body knows. Your mind plans. Small steps make it real.</p>
+        <h2 id="focus-title">How we help you live <span class="em-your">your</span> purpose</h2>
+        <p class="focus-sub focus-sub-line">3 simple steps, informed by neuroscience and psychology.</p>
       </div>
       <div class="focus method">
         <div class="focus-item">
-          <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/><path d="M6.5 12.5h3l1.3-2.3 2 4.2 1.4-1.9h3.3"/></svg></span>
           <h3><span class="step-num">1</span> Notice</h3>
           <p class="method-tag">Your body already knows</p>
         </div>
         <div class="focus-item">
-          <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/><circle cx="12" cy="12" r="0.6" class="dot"/></svg></span>
           <h3><span class="step-num">2</span> Imagine</h3>
           <p class="method-tag">Picture the life you want</p>
         </div>
         <div class="focus-item">
-          <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v-8"/><path d="M12 12c0-3.5-2.5-6-6.5-6 0 3.8 2.6 6 6.5 6z"/><path d="M12 14.5c0-3.3 2.4-5.5 6.5-5.5 0 3.5-2.6 5.5-6.5 5.5z"/><path d="M8 20h8"/></svg></span>
           <h3><span class="step-num">3</span> Practice</h3>
-          <p class="method-tag">Make it real, one step at a time</p>
+          <p class="method-tag">One step at a time</p>
         </div>
       </div>
 
