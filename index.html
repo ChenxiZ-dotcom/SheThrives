@@ -15,16 +15,16 @@
 /* Layout: a single editorial column; the hero pairs the headline with a filled-in "standard answer" sheet,
    the guide section borrows a boxing "tale of the tape" card. Brand palette: warm apricot + ochre. */
 :root {
-  --bg: #F3E3D3;          /* warm apricot ground */
-  --paper: #FFF8F0;       /* card / sheet surface */
-  --ochre: #B5654A;       /* brand accent */
-  --ochre-ink: #8E4631;   /* accent text on paper */
-  --ink: #3E3530;         /* body text */
-  --muted: #6B5B51;       /* secondary text */
-  --line: #E2CDB9;        /* rules, borders */
-  --sage: #5F7355;        /* growth accent, used sparingly */
-  --on-ochre: #FFF8F0;
-  --btn: #A85A40;
+  --bg: #F5F3EC;          /* airy sand ground */
+  --paper: #FCFBF7;       /* card / sheet surface */
+  --ochre: #A86A4F;       /* clay accent */
+  --ochre-ink: #7F4B35;   /* accent text on paper */
+  --ink: #353A30;         /* body text */
+  --muted: #62675B;       /* secondary text */
+  --line: #E1E2D6;        /* rules, borders */
+  --sage: #5A6F52;        /* sage: buttons, labels */
+  --on-ochre: #FFFFFF;
+  --btn: #5F7355;
 
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --body: "Nunito Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
@@ -44,13 +44,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #1E1815; --paper: #2A221E; --ochre: #D98B6F; --ochre-ink: #E9A58B;
-    --ink: #EFE3D6; --muted: #B8A698; --line: #43372F; --sage: #9DB38F; --on-ochre: #1E1815; --red: #F07A66; --btn: #D98B6F;
+    --ink: #EFE3D6; --muted: #B8A698; --line: #43372F; --sage: #9DB38F; --on-ochre: #1E1815; --red: #F07A66; --btn: #9DB38F;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #1E1815; --paper: #2A221E; --ochre: #D98B6F; --ochre-ink: #E9A58B;
-  --ink: #EFE3D6; --muted: #B8A698; --line: #43372F; --sage: #9DB38F; --on-ochre: #1E1815; --red: #F07A66; --btn: #D98B6F;
+  --ink: #EFE3D6; --muted: #B8A698; --line: #43372F; --sage: #9DB38F; --on-ochre: #1E1815; --red: #F07A66; --btn: #9DB38F;
   color-scheme: dark;
 }
 
@@ -71,7 +71,7 @@ a { color: var(--ochre-ink); }
 a:focus-visible, .btn:focus-visible { outline: 3px solid var(--sage); outline-offset: 3px; border-radius: 6px; }
 .label {
   font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--ochre-ink);
+  text-transform: uppercase; color: var(--sage);
 }
 .section { padding-block: clamp(3.5rem, 8vw, 6rem); border-top: 1px solid var(--line); }
 .section-head { display: grid; gap: 0.8rem; max-width: 40rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
@@ -277,6 +277,8 @@ footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; font-fam
 }
 @media (max-width: 600px) {
   .scenes, .outcomes { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
   .top nav { gap: 0.9rem; }
   .top nav a:not(.nav-cta) { display: none; }
 }
@@ -354,6 +356,51 @@ footer { font-size: 0.9rem; }
 .readmore-close-line a { color: var(--ochre-ink); }
 .readmore-sources { margin-top: 1rem; font-size: var(--step--1); color: var(--muted); }
 .readmore-sources a { color: inherit; }
+
+/* coaching vs therapy scale */
+.scale { margin-top: clamp(2.5rem, 5vw, 3.5rem); padding: clamp(1.5rem, 4vw, 2.25rem); background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+.scale-title { font-size: var(--step-2); }
+.scale-sub { color: var(--muted); margin-top: 0.35rem; }
+.scale-graphic { margin-top: clamp(1.5rem, 4vw, 2rem); }
+.scale-arrows { position: relative; height: 2.6rem; }
+.scale-arrow { position: absolute; bottom: 0.5rem; height: 4px; border-radius: 4px; }
+.scale-arrow span { position: absolute; bottom: 0.55rem; left: 50%; transform: translateX(-50%); font-family: var(--display); font-weight: 700; font-size: var(--step-0); white-space: nowrap; }
+.scale-arrow::after { content: ""; position: absolute; right: -2px; top: 50%; transform: translateY(-50%); border-left: 11px solid currentColor; border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+.scale-arrow.therapy { left: 6%; right: 51.5%; background: var(--ochre); color: var(--ochre); }
+.scale-arrow.therapy span { color: var(--ochre-ink); }
+.scale-arrow.coaching { left: 51.5%; right: 4%; background: var(--sage); color: var(--sage); }
+.scale-arrow.coaching span { color: var(--sage); }
+.scale-line { position: relative; height: 6px; border-radius: 6px; background: linear-gradient(90deg, color-mix(in srgb, var(--ochre) 35%, var(--line)), var(--line) 50%, color-mix(in srgb, var(--sage) 45%, var(--line))); }
+.scale-line .tick { position: absolute; top: -6px; width: 2px; height: 18px; background: var(--muted); }
+.t-min { left: 0; } .t-zero { left: calc(50% - 1px); width: 3px !important; background: var(--ink) !important; } .t-max { right: 0; }
+.scale-labels { position: relative; height: 3.6rem; margin-top: 0.7rem; font-size: var(--step--1); color: var(--muted); line-height: 1.3; }
+.scale-labels > div { position: absolute; top: 0; max-width: 34%; }
+.scale-labels b { display: block; font-family: var(--display); color: var(--ink); font-size: 1rem; }
+.sl-min { left: 0; }
+.sl-zero { left: 50%; transform: translateX(-50%); text-align: center; }
+.sl-max { right: 0; text-align: right; }
+.sl-max b, .sl-max { color: var(--sage); font-weight: 700; }
+.scale-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: clamp(1.25rem, 3vw, 1.75rem); }
+.scale-card { padding: 1rem 1.15rem; border-radius: 10px; border-left: 4px solid; background: var(--bg); }
+.scale-card.therapy { border-color: var(--ochre); }
+.scale-card.coaching { border-color: var(--sage); }
+.scale-card h4 { font-family: var(--display); font-size: 1.1rem; margin: 0 0 0.3rem; }
+.scale-card.therapy h4 { color: var(--ochre-ink); }
+.scale-card.coaching h4 { color: var(--sage); }
+.scale-note { margin-top: 1.1rem; font-weight: 600; }
+@media (max-width: 560px) {
+  .scale-cards { grid-template-columns: 1fr; }
+  .scale-labels { height: 4.6rem; }
+  .scale-arrow span { font-size: 0.95rem; }
+}
+
+.method .focus-item h3 { display: flex; align-items: center; gap: 0.5rem; }
+.step-num { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--sage); color: var(--on-ochre); font-size: 0.9rem; flex: none; }
+.method-tag { font-weight: 700; color: var(--ink); margin-top: -0.15rem; }
+.study-links { font-size: var(--step--1); color: var(--muted); }
+.study-links a { color: var(--ochre-ink); }
+.rm-divider { border: 0; border-top: 1px solid var(--line); margin: 1.5rem 0 0.5rem; }
+.rm-section-label { font-family: var(--mono); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); font-weight: 700; }
 </style>
 <style>
 html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:none!important}
@@ -367,6 +414,7 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
   <header class="top">
     <a class="wordmark" href="#top" id="top"><img class="wordmark-icon" src="data:image/png;base64,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" alt="" width="40" height="40"><span class="wm-text">She<span>Thrives</span></span></a>
     <nav aria-label="Sections">
+      <a href="#focus">How it works</a>
       <a href="#about">Why SheThrives</a>
       <a href="#how">How to start</a>
       <a href="#book" class="nav-cta">Book the call</a>
@@ -432,24 +480,76 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
     <section class="section" id="focus" aria-labelledby="focus-title">
       <div class="section-head">
         <h2 id="focus-title">How we help you find <span class="em-your">your</span> purpose</h2>
-        <p class="focus-sub">Purpose coaching, focused on three things.</p>
+        <p class="focus-sub">Your body knows. Your mind plans. Small steps make it real.</p>
       </div>
-      <div class="focus">
+      <div class="focus method">
         <div class="focus-item">
-          <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/><circle cx="12" cy="12" r="0.6" class="dot"/></svg></span>
-          <h3>Direction</h3>
-          <p>Know what you want from work and life.</p>
+          <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.3a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20z"/><path d="M6.5 12.5h3l1.3-2.3 2 4.2 1.4-1.9h3.3"/></svg></span>
+          <h3><span class="step-num">1</span> Notice</h3>
+          <p class="method-tag">Your body already knows</p>
         </div>
         <div class="focus-item">
-          <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11L12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M12 17.2s-3.2-1.9-3.2-4a1.7 1.7 0 0 1 3.2-.8 1.7 1.7 0 0 1 3.2.8c0 2.1-3.2 4-3.2 4z"/></svg></span>
-          <h3>Family expectations</h3>
-          <p>Honor your family and make your own choices, without guilt.</p>
+          <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/><circle cx="12" cy="12" r="0.6" class="dot"/></svg></span>
+          <h3><span class="step-num">2</span> Imagine</h3>
+          <p class="method-tag">Picture the life you want</p>
         </div>
         <div class="focus-item">
           <span class="focus-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20v-8"/><path d="M12 12c0-3.5-2.5-6-6.5-6 0 3.8 2.6 6 6.5 6z"/><path d="M12 14.5c0-3.3 2.4-5.5 6.5-5.5 0 3.5-2.6 5.5-6.5 5.5z"/><path d="M8 20h8"/></svg></span>
-          <h3>Self-trust</h3>
-          <p>Quiet self-doubt. Decide from your own values.</p>
+          <h3><span class="step-num">3</span> Practice</h3>
+          <p class="method-tag">Make it real, one step at a time</p>
         </div>
+      </div>
+
+      <details class="readmore">
+        <summary><span class="rm-open">Read more: how it works and the science behind it</span><span class="rm-close">Show less</span></summary>
+        <div class="readmore-body">
+          <h3>1. Notice: your body already knows</h3>
+          <p>Most of us were never asked what we want, so the answer isn&rsquo;t in our heads yet. We start with your everyday life: the moments you feel lighter and more alive, and the ones that drain you. Your body notices before your mind can explain.</p>
+          <h3>2. Imagine: picture the life you want</h3>
+          <p>From those real moments, we picture a day in the life you want. It&rsquo;s not a fantasy, it&rsquo;s built from what already lights you up.</p>
+          <h3>3. Practice: make it real, one step at a time</h3>
+          <p>We name what could get in the way, make an if-then plan, and take one small step. See how it goes, adjust, try again.</p>
+          <hr class="rm-divider">
+          <p class="rm-section-label">The science behind it</p>
+          <h3>Your body often knows first</h3>
+          <p>In a well-known University of Iowa experiment, people played a card game with hidden risky decks. Their bodies showed small stress responses before they reached for a risky card, and they began choosing better before they could explain why. Scientists still debate exactly what this shows, but it suggests body signals carry real information. Noticing them is a skill called <strong>interoception</strong>, and it can be practiced.</p>
+          <p class="study-links">Read the research: <a href="https://web.stanford.edu/~jlmcc/papers/BecharaEtAl05_TiCS.pdf" target="_blank" rel="noopener">Bechara et al., the Iowa Gambling Task (summary)</a> &middot; <a href="https://www.pnas.org/doi/pdf/10.1073/pnas.0406666101" target="_blank" rel="noopener">Maia &amp; McClelland, a critical look (PNAS)</a></p>
+
+          <h3>Dreaming alone can drain you</h3>
+          <p>Psychologist Gabriele Oettingen and colleagues found that people who only daydreamed about an ideal outcome had less energy afterward, measured by their blood pressure. In one study, people who fantasized about a great week went on to get fewer of their goals done.</p>
+          <p class="study-links">Read the research: <a href="https://www.bps.org.uk/research-digest/why-positive-fantasies-make-your-dreams-less-likely-come-true" target="_blank" rel="noopener">BPS summary</a> &middot; <a href="https://www.researchgate.net/publication/229094888_Positive_fantasies_about_idealized_futures_sap_energy" target="_blank" rel="noopener">Kappes &amp; Oettingen (2011)</a></p>
+
+          <h3>Dream, then plan for the obstacle</h3>
+          <p>What works better: picture what you want, name what&rsquo;s in the way, then make an &ldquo;if this happens, I&rsquo;ll do that&rdquo; plan. A 2021 review of 21 studies with nearly 16,000 people found this approach reliably helped people reach their goals.</p>
+          <p class="study-links">Read the research: <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2021.565202/full" target="_blank" rel="noopener">Wang, Wang &amp; Gai (2021), Frontiers in Psychology</a></p>
+
+          <h3>Solution-focused coaching</h3>
+          <p>Our approach draws on solution-focused work, developed by Steve de Shazer and Insoo Kim Berg. Instead of digging into what&rsquo;s wrong with you, we focus on the future you want and on what&rsquo;s already working, then build from there.</p>
+        </div>
+      </details>
+
+      <div class="scale">
+        <h3 class="scale-title">Coaching or therapy?</h3>
+        <p class="scale-sub">Picture a line from &minus;100 to +100.</p>
+        <div class="scale-graphic" role="img" aria-label="A line from minus 100, hard to get through the day, to 0, getting by, to plus 100, thriving. Therapy moves you from the negative side up to zero. Coaching moves you from zero toward plus 100.">
+          <div class="scale-arrows" aria-hidden="true">
+            <div class="scale-arrow therapy"><span>Therapy</span></div>
+            <div class="scale-arrow coaching"><span>Coaching</span></div>
+          </div>
+          <div class="scale-line" aria-hidden="true">
+            <i class="tick t-min"></i><i class="tick t-zero"></i><i class="tick t-max"></i>
+          </div>
+          <div class="scale-labels" aria-hidden="true">
+            <div class="sl-min"><b>&minus;100</b>Hard to get through the day</div>
+            <div class="sl-zero"><b>0</b>Getting by</div>
+            <div class="sl-max"><b>+100</b>Thriving</div>
+          </div>
+        </div>
+        <div class="scale-cards">
+          <div class="scale-card therapy"><h4>Therapy</h4><p>Helps you heal when life feels hard to get through, so you can feel steady again.</p></div>
+          <div class="scale-card coaching"><h4>Purpose coaching</h4><p>Starts when you&rsquo;re steady but something&rsquo;s missing, and helps you move from getting by to thriving.</p></div>
+        </div>
+        <p class="scale-note">Not sure where you are? That&rsquo;s what the new client call is for. If therapy is the better fit, I&rsquo;ll tell you honestly, refund your $28, and help you find support.</p>
       </div>
       <details class="readmore">
         <summary><span class="rm-open">Read more: why we start with &ldquo;why&rdquo;</span><span class="rm-close">Show less</span></summary>
@@ -542,7 +642,7 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
       <ol class="steps">
         <li><h3>Book a 30-minute new client call</h3><p>We talk about where you feel stuck. No pressure. You leave with a clear plan for your next steps.</p><p>Not a fit? Full refund, and I'll point you to therapy or other support. Starting coaching? The $28 goes toward your fee.</p></li>
         <li><h3>Start 1:1 purpose coaching</h3><p>We set your goals, the steps to get there, and how we'll track progress. In English or Mandarin.</p></li>
-        <li><h3>See it, understand it, build it</h3><p>Look at your life now: what to change, what to keep. Understand the patterns holding you back, using neuroscience and psychology. Then take real first steps toward the life you want.</p></li>
+        <li><h3>Notice, imagine, practice</h3><p>Notice what your body already knows, picture the life you want, then take real steps toward it. See how it goes, adjust, try again.</p></li>
       </ol>
       <p class="pricing"><strong>1:1 purpose coaching packages start at $689.</strong> We'll find the right fit on your call.</p>
       <div class="promise">
