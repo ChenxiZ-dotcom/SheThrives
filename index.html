@@ -139,7 +139,7 @@ a:focus-visible, .btn:focus-visible { outline: 3px solid var(--sage); outline-of
 html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 1.5rem; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-.hero .cta-row { justify-content: center; margin-top: 0.4rem; }
+.hero .cta-row { flex-direction: column; align-items: center; gap: 0.6rem; margin-top: 0.4rem; }
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
 
 /* the standard-answer sheet */
@@ -337,6 +337,23 @@ footer { border-top: 1px solid var(--line); padding-block: 2rem 2.5rem; font-fam
 .tape .creds { font-size: 1rem; }
 .tape .sub { font-weight: 700; }
 footer { font-size: 0.9rem; }
+
+/* read more */
+.readmore { margin-top: clamp(1.5rem, 3vw, 2rem); }
+.readmore summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; color: var(--ochre-ink); padding: 0.55rem 1.1rem; border: 1.5px solid var(--ochre); border-radius: 999px; }
+.readmore summary::-webkit-details-marker { display: none; }
+.readmore summary::after { content: "\203A"; font-size: 1.25em; line-height: 1; transform: rotate(90deg); transition: transform 0.2s; }
+.readmore[open] summary::after { transform: rotate(-90deg); }
+.readmore summary:hover, .readmore summary:focus-visible { background: var(--paper); }
+.readmore .rm-close, .readmore[open] .rm-open { display: none; }
+.readmore[open] .rm-close { display: inline; }
+.readmore-body { max-width: 42rem; margin-top: clamp(1.25rem, 3vw, 1.75rem); display: grid; gap: 0.65rem; }
+.readmore-body h3 { font-size: var(--step-1); color: var(--ochre-ink); margin-top: 0.9rem; }
+.readmore-body h3:first-child { margin-top: 0; }
+.readmore-close-line { margin-top: 1rem; font-weight: 700; }
+.readmore-close-line a { color: var(--ochre-ink); }
+.readmore-sources { margin-top: 1rem; font-size: var(--step--1); color: var(--muted); }
+.readmore-sources a { color: inherit; }
 </style>
 <style>
 html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:none!important}
@@ -434,6 +451,28 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
           <p>Quiet self-doubt. Decide from your own values.</p>
         </div>
       </div>
+      <details class="readmore">
+        <summary><span class="rm-open">Read more: why we start with &ldquo;why&rdquo;</span><span class="rm-close">Show less</span></summary>
+        <div class="readmore-body">
+          <h3>The finish line keeps moving</h3>
+          <p>Psychologists call it the <strong>hedonic treadmill</strong>. A new job, a raise, a promotion: each one feels great, then quickly becomes normal, and we start chasing the next thing. In a classic 1978 study, people who had won the lottery weren&rsquo;t significantly happier than people who hadn&rsquo;t.</p>
+
+          <h3>Money helps, but less than we think</h3>
+          <p>Money matters, especially when it&rsquo;s tight. But a 2023 study found that for people who are unhappy, more income stops helping at around $100,000 a year. Heartbreak, loss, feeling lost: a bigger paycheck can&rsquo;t fix those.</p>
+
+          <h3>What the longest study of happiness found</h3>
+          <p>Since 1938, Harvard researchers have followed people across their entire lives. One of their clearest findings: <strong>close relationships</strong>, more than money or fame, are what keep people happy and healthy.</p>
+
+          <h3>School taught us how, never why</h3>
+          <p>We learned how to get good grades, how to get into a good school, how to land the job. Nobody asked <em>why</em>. Why this path? What do I actually care about? It&rsquo;s the big question most of us avoid, because it&rsquo;s uncomfortable, and because the checklist kept us busy.</p>
+
+          <h3>Why &ldquo;why&rdquo; changes everything</h3>
+          <p>When you know your why, choices get clearer. You gain a quiet confidence that whatever happens, you&rsquo;ll figure it out. And life stops feeling like a list of boxes to tick. You start enjoying the life you&rsquo;re living, and the journey itself.</p>
+          <p class="readmore-close-line">That&rsquo;s what purpose coaching is for. <a href="#book">Book a 30-minute new client call</a></p>
+
+          <p class="readmore-sources">Sources: Brickman, Coates &amp; Janoff-Bulman (1978), <a href="https://gwern.net/doc/psychology/1978-brickman.pdf" target="_blank" rel="noopener">&ldquo;Lottery winners and accident victims&rdquo;</a>; Killingsworth, Kahneman &amp; Mellers (2023), <a href="https://www.pnas.org/doi/10.1073/pnas.2208661120" target="_blank" rel="noopener">&ldquo;Income and emotional well-being: A conflict resolved,&rdquo; PNAS</a>; <a href="https://www.harvard.edu/in-focus/happiness/" target="_blank" rel="noopener">Harvard Study of Adult Development</a>; Waldinger &amp; Schulz, <em>The Good Life</em> (2023).</p>
+        </div>
+      </details>
     </section>
 
     <section class="section" id="about" aria-labelledby="about-title">
