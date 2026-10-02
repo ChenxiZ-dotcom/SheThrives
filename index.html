@@ -126,16 +126,20 @@ a:focus-visible, .btn:focus-visible { outline: 3px solid var(--sage); outline-of
 }
 .belief span { color: var(--ochre); font-weight: 800; }
 .hero { justify-items: center; text-align: center; }
-.hero-sub { font-size: var(--step-1); line-height: 1.45; max-width: 34rem; margin-top: 0.2rem; }
+.hero-sub { font-size: var(--step-1); line-height: 1.45; max-width: 34rem; }
 .hero > .hero-visual { width: min(100%, 680px); }
 .hero-close { display: grid; gap: clamp(1rem, 2.5vw, 1.5rem); justify-items: center; max-width: 52rem; }
 .hero .belief { max-width: 40rem; margin-inline: auto; }
 .hero .solution {
-  font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.35rem); line-height: 1.08;
-  letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; margin-top: clamp(0.5rem, 2vw, 1.25rem);
+  font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.75rem); line-height: 1.3;
+  color: var(--ink); max-width: 40rem; text-wrap: balance; margin-top: 0.15rem;
 }
-.solution strong { color: var(--ochre); font-weight: 800; }
-.hero .cta-row { justify-content: center; margin-top: 0.5rem; }
+.solution-link { color: var(--ochre); font-weight: 800; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; text-decoration-color: currentColor; }
+.solution-link:hover, .solution-link:focus-visible { color: var(--ochre-ink); }
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 1.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.hero .cta-row { justify-content: center; margin-top: 0.4rem; }
 .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
 
 /* the standard-answer sheet */
@@ -357,7 +361,11 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
       <div class="hero-head">
         <p class="label hero-eyebrow">Purpose coaching for Asian women in North America</p>
         <h1 id="hero-title"><span class="h1-line">You checked every box.</span> <span class="h1-line">So why does something still feel <em>missing</em>?</span></h1>
-        <p class="hero-sub">Good school, stable job, the visa. Everything you were told to want.</p>
+        <p class="solution">Our <a class="solution-link" href="#focus">purpose coaching</a> helps you find what you truly want, so you wake up excited about your day.</p>
+        <div class="cta-row">
+          <a class="btn" href="#book">Book a 30-minute new client call</a>
+          <span class="btn-note">$28 · Leave with a clear plan · Full refund if it's not a fit</span>
+        </div>
       </div>
 
       <div class="hero-visual">
@@ -365,12 +373,8 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
       </div>
 
       <div class="hero-close">
+        <p class="hero-sub">Good grades, good school, stable job. Everything you were told to want.</p>
         <p class="belief">You get to decide what a good life looks like. Not the checklist you grew up with. <span>You.</span></p>
-        <p class="solution">Our <strong>purpose coaching</strong> helps you find what you truly want, so you wake up excited about your day.</p>
-        <div class="cta-row">
-          <a class="btn" href="#book">Book a 30-minute new client call</a>
-          <span class="btn-note">$28 · Leave with a clear plan · Full refund if it's not a fit</span>
-        </div>
       </div>
     </section>
 
@@ -383,10 +387,9 @@ html{color-scheme:light} body{margin:0} img{max-width:100%} [hidden]{display:non
         <div class="sheet" aria-label="The standard answer, filled in">
           <div class="sheet-head"><span>The standard answer</span><span class="grade" aria-label="Score: 100%"><span class="grade-num">100</span><span class="grade-pct">%</span></span></div>
           <ul>
-            <li><span class="tick" aria-hidden="true">✓</span>Top school</li>
-            <li><span class="tick" aria-hidden="true">✓</span>A "practical" major</li>
+            <li><span class="tick" aria-hidden="true">✓</span>Good education</li>
+            <li><span class="tick" aria-hidden="true">✓</span>Studied abroad</li>
             <li><span class="tick" aria-hidden="true">✓</span>Stable job</li>
-            <li><span class="tick" aria-hidden="true">✓</span>Visa sorted</li>
             <li><span class="tick" aria-hidden="true">✓</span>Parents proud</li>
           </ul>
           <div class="open">
